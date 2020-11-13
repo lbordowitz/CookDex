@@ -1,0 +1,1 @@
+Quick note: We should probably have recipes in-memory for now. Worry about the persistence of data once a meaningful data model emerges.

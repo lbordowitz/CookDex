@@ -1,0 +1,23 @@
+How should we store the recipe trees?
+
+We could do the "standard method" which is that each leaf has a parent id... but that doesn't seem very useful. After all, what are we going to be doing IN THE DB ITSELF to query for recipes?
+
+A lot of the processing is a "whole tree" processing. So it would make more sense to edit the entire tree, and maybe have a many-to-many cross-reference table between ingredients and recipes
+
+So, what does the data model ACTUALLY look like in SQL?
+
+Cooking Techniques:
+ - English description template for ingredients
+ - Active Time Component
+ - Optional Inactive Time Component
+
+Cooking Technique Parameters (one tech to many parameters)
+ - parameter description
+ - the technique the parameter is for
+
+Questions:
+ - It takes some people longer than others to chop a potato. That's not really "active" cooking time in the same way: one is a required amount of time to achieve a desired cooking effect (sauteing, boiling are like this), and the other is the amount of time a person needs in order to carry out the task (like chopping and mashing). So, some techniques are "the food needs this amount of time" and other techniques are "the person needs this amount of time". How to represent this difference?
+
+I think now is a time for a good question: what's going to get you through the tough times of this project? Also, maybe we should wait until the nanowrimo is done (or given up upon) to start this? Yeah. Let's aim for 10,000 words today.
+
+BTW, projective editing: https://github.com/projectit-org/ProjectIt

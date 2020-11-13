@@ -1,0 +1,88 @@
+Cooking notes!
+
+What do we want a recipe to consist of? Actually, suppose you have a bunch of sauted onions already. Do you need to make more sauted onions?
+
+Here's an idea: how about we take recipes, and we represent them in a more computer style?
+
+https://www.simplyrecipes.com/recipes/easy_shepherds_pie/
+
+1 Boil the potatoes
+PeeledPotatoes = Peel Potatoes
+QuarteredPotatoes  = Quarter PeeledPotatoes
+BoiledPotatoes = *Boil QuarteredPotatoes, in "1 inch of water" with salt, for 20 minutes
+// We don't do this next one yet:
+// MashedPotatoes = Mash BoiledPotatoes
+
+That covers the first step. Of those steps, all of them are mechanical alterations except for boiling. And boiling is the most complicated: The recipe specifically says to cover the potatoes in an inch of cold water in a medium-sized pot, then bring to a boil, salt the water, and continue boiling for 20 miuntes.
+
+But we've already figured a couple things out:
+ - The tree-like structure of a recipe can be traversed in a post-order method, which is very, very pleasant and natural.
+ - Leaves of the recipe tree are raw ingredients. Nodes are ingredient phases, which, of course, can be subbed if they're already made (this is the point you made earlier!).
+ - Inner-nodes consist of the base raw ingredients, along with a cooking verb, I think we should call that a technique.
+
+We should do some baking recipe next... Anyway!
+
+2. Saute vegetables
+ChoppedOnions = Chop Onions
+SautedOnions = Saute Onions, in 4tbsp butter, on medium, for 6 to 10 minutes
+SautedOnionsAndCarrots = Saute Onions and carrots, in 4tbsp butter, on medium, for 6 to 10 minutes
+SautedVegetables = Saute (SautedOnions or SautedOnionsAndCarrots), on medium, with (corn or peas or both), for 1 minute
+
+Notes about step:
+ - The literal first five words: "While the potatoes are cooking". In other words, there is a scheduling problem involved in cooking! Wow.
+ - There are optional carrot steps.
+ - There's so much creativity in how many veggies you could saute, and for how long. While there isn't one single correct way to saute vegetables, there is a best way for a particular recipe. it needs to be cooked enough to make sure each ingredient is soft, but not overcooked, but also that their flavors are mixed together.
+
+3. 
+BeefAndVegetables = PanCook RawGroundBeef and SautedVegetables, on medium, until beef is no longer pink.
+SeasonedBeefAndVegetables = SeasonDry BeefAndVegetables with Salt+Pepper
+PreShepherdsPieFilling = Add SeasonedBeefAndVegetables and Worcestershire sauce and beef Broth
+ShepherdsPieFilling = Simmer, uncovered, PreShepherdsPieFilling, for 10 minutes
+
+4.
+MashedPotatoes = Mash BoiledPotatoes and 4 Tbsp butter
+SeasonedMashedPotatoes = Season MashedPotatoes with Salt+Pepper
+
+5.
+UncookedShepherdsPie = Layer ShepherdsPieFilling, then SeasonedMashedPotatoes, in casserole
+
+6.
+ShepheredPie = Bake, at 400, UncookedShepherdsPie, for 30 minutes
+
+There's an optional bit about broiling the shepherds pie. I like to cover with aluminum foil and then broil a bit later.
+
+There are a bunch of variations. First off, I have much more seasoned mashed taters, with garlic powder and mustard powder in it, or heavy cream instead of butter. The recipe itself mentions creamed corn as an in-between layer, as well as grated cheese on top of the potatoes.
+
+So far, in our data structure:
+ - Raw Ingredients
+ - Cooking Techniques
+ - Recipe Trees
+ - Recipe Templates
+ - Variations, with tree modification diffs
+ - Cookware
+
+Some very cool things about this representation:
+ - Raw ingredient listings, and their amounts, can be derived from leaves of the tree
+ - After a fashion, so could total cook time, although there's a scheduling problem there
+
+Keeping our eyes on the prize:
+
+WHAT SETS THIS APART FROM ANY OTHER COOKBOOK?
+
+It is an index of cooking techniques, with recipes organized and structured around the techniques themselves. They exist to be simplified, complicated, dressed up, and remixed. Creativity of recipes can be captured in a structured way.
+
+We want to do this for:
+ - Beginner cooks, who want simple versions of their favorite recipes: maybe there's a simplify version
+ - Amateur home cooks who know a thing or two, but want to learn a new technique
+ - Home cooks who have some ingredients, but don't know what to make for dinner tonight
+ - Seasoned (lol) cooks who want to try their hand at recipe making.
+ - ME! I'm doing this for me! I want my perfect cookbook, made in my image. I want recipes that are structured in the same way that I think of cooking.
+
+TODO for cooking data structure: 
+ - Figure out boiling, sauteing, baking, and other "complicated" cooking steps.
+ - How to capture that something should all be done in the same pan, between steps?
+ - Literally the kitchen utensils and cookware needs to be represented
+ - Recipe templates?
+ - Representing variations as tree diffs!
+ - The scheduling problem ("while the potatoes are boiling" and "mash potatoes while gravy is simmering" steps are nontrivial)
+ - And, of course, making this into actual code!
