@@ -1,1 +1,15 @@
 Quick note: We should probably have recipes in-memory for now. Worry about the persistence of data once a meaningful data model emerges.
+
+Okay. I've very roughly completed a very rough first draft of the CookDex data model, in memory.
+
+The Good:
+ - We could probably do a pre-order traversal of ingredient components and get all the instructions, in order!
+ - Different cooking techniques are surprisingly generic, in terms of their descriptions
+  - We have a long way to go, but the path for each operation is fairly clear given this structured representation.
+The Bad:
+ - The syntax and method of writing down the tree is clumsy and difficult to look at.
+ - While cooking techniques are generic, there are certain natural language ways of providing information that aren't added. The modality of "cooking x in y" sticks out the most right now.
+ - Would someone really benefit from ingredients and techniques being displayed in this manner? 
+   - This is the internal data representation: the actual way a user would interact would, naturally, be different.
+
+I don't think the Bad parts are insurmountable. It may be a bit difficult. I do have faith that this method of representation will yield a usable, useful, and beneficial cooking experience in the long-run.
