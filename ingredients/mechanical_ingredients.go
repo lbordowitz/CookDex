@@ -19,7 +19,7 @@ func (ingredient *MechanicallyPreparedIngredient) Display() string {
 		componentIngredientNames[i] = v.IngredientReferenceName()
 	}
 
-	return fmt.Sprintf("{} the {}", ingredient.Technique, strings.Join(componentIngredientNames, ", "))
+	return fmt.Sprintf("%s the %s", ingredient.Technique, strings.Join(componentIngredientNames, ", "))
 }
 
 func (ingredient *MechanicallyPreparedIngredient) IngredientReferenceName() string {
