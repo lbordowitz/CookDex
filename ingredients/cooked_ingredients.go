@@ -14,9 +14,13 @@ type CookedIngredient struct {
 	// indexOfIngredientInWhichTheRestOfTheIngredientsCook int
 }
 
-func CookingTechnique(Technique string, ResultingIngredient string, SubIngredients []Ingredient, Time int, Heat string) *CookedIngredient {
+type CookingTechnique struct {
+	Technique string
+}
+
+func (tech *CookingTechnique) Cook(ResultingIngredient string, SubIngredients []Ingredient, Time int, Heat string) *CookedIngredient {
 	return &CookedIngredient{
-		Technique:  Technique,
+		Technique:  tech.Technique,
 		Name:       ResultingIngredient,
 		components: SubIngredients,
 		time:       Time,

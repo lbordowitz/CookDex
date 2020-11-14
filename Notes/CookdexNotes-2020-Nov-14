@@ -1,0 +1,5 @@
+Two ideas:
+ - How about we make cooking techniques act more like verbs?
+ - Can we use some sort of "Decorator pattern" to add the "in y" part to "<verb> x *in y*" cooking instructions?
+
+So, Technique is something like boil, saute, etc. It has a method Cook. It's a more object-oriented way to handle than very large constructors.
