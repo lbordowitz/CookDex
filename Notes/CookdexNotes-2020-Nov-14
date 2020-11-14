@@ -3,3 +3,9 @@ Two ideas:
  - Can we use some sort of "Decorator pattern" to add the "in y" part to "<verb> x *in y*" cooking instructions?
 
 So, Technique is something like boil, saute, etc. It has a method Cook. It's a more object-oriented way to handle than very large constructors.
+
+Oh! Another thing, I think I made this point about time earlier:
+ - Mechanical techniques track the amount of time the Person cooking needs to execute the action
+ - Chemical/Heat/Cooking techniques track the amount of time the Food needs to cook for to get the desired result
+
+A subtle, but important difference. The Mechanical time is usually not tracked very well; some people have knife skills for days, others might take a little more time to chop things up.
