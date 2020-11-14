@@ -12,6 +12,15 @@ type MechanicallyPreparedIngredient struct {
 	time       int
 }
 
+func MechanicalTechnique(Technique string, ResultingIngredient string, SubIngredients []Ingredient, Time int) *MechanicallyPreparedIngredient {
+	return &MechanicallyPreparedIngredient{
+		Technique:  Technique,
+		Name:       ResultingIngredient,
+		components: SubIngredients,
+		time:       Time,
+	}
+}
+
 func (ingredient *MechanicallyPreparedIngredient) Display() string {
 
 	componentIngredientNames := make([]string, len(ingredient.components))
