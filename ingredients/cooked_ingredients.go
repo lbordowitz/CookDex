@@ -6,24 +6,14 @@ import (
 )
 
 type CookedIngredient struct {
-	Technique                                           string
-	Name                                                string
-	components                                          []Ingredient
-	time                                                int
-	heat                                                string
-	indexOfIngredientInWhichTheRestOfTheIngredientsCook int
+	Technique  string
+	Name       string
+	components []Ingredient
+	time       int
+	heat       string
+	// indexOfIngredientInWhichTheRestOfTheIngredientsCook int
 }
 
-func CookingTechniqueInStuff(Technique string, ResultingIngredient string, SubIngredients []Ingredient, Time int, Heat string, In int) *CookedIngredient {
-	return &CookedIngredient{
-		Technique:  Technique,
-		Name:       ResultingIngredient,
-		components: SubIngredients,
-		time:       Time,
-		heat:       Heat,
-		indexOfIngredientInWhichTheRestOfTheIngredientsCook: In,
-	}
-}
 func CookingTechnique(Technique string, ResultingIngredient string, SubIngredients []Ingredient, Time int, Heat string) *CookedIngredient {
 	return &CookedIngredient{
 		Technique:  Technique,
@@ -31,7 +21,6 @@ func CookingTechnique(Technique string, ResultingIngredient string, SubIngredien
 		components: SubIngredients,
 		time:       Time,
 		heat:       Heat,
-		indexOfIngredientInWhichTheRestOfTheIngredientsCook: -1,
 	}
 }
 func (ingredient *CookedIngredient) Display() string {
