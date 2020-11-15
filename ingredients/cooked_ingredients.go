@@ -2,7 +2,6 @@ package ingredients
 
 import (
 	"fmt"
-	"strings"
 )
 
 type CookedIngredient struct {
@@ -35,7 +34,7 @@ func (ingredient *CookedIngredient) Display() string {
 	}
 	// TODO exclude "in" ingredient, add it later as "in x" or something.
 
-	return fmt.Sprintf("%s the %s, at %s heat, for %d minutes", ingredient.Technique, strings.Join(componentIngredientNames, ", "), ingredient.heat, ingredient.time)
+	return fmt.Sprintf("%s the %s, at %s heat, for %d minutes", ingredient.Technique, conjoin("and", componentIngredientNames), ingredient.heat, ingredient.time)
 }
 
 func (ingredient *CookedIngredient) IngredientReferenceName() string {

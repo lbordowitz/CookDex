@@ -18,3 +18,17 @@ For instance, we can utilize the fact that there's an ingredient reference name 
 
 Okay... I included an ingredient listing. It's okay. One of the problems: it lists the butter ingredient twice, rather than combining them.
 This is because we use butter in two situations: 1/4 cup for mashed potatoes, and 1/4 cup for sauteing the onions.
+
+Is there a go package that does human-readable "and" lists? Yes, conjoin
+https://play.golang.org/p/MWpr9mlTdC
+^^ WARNING There's no license here.
+
+Well, it's still far from perfect, but it's better than yesterday. Let's keep track of what needs to be done, still.
+ - Scheduling problem: a smarter order for displaying the recipe, and maybe some sort of meanwhile.
+ - Easier way of entering recipes (possibly automatic, GPT3+DLNN for recipe book -> recipe tree?)
+   - I'd settle for an easier way to code them.
+   - I still haven't done a satisfactory decorator, maybe that's up for tomorrow!
+ - Variations/Optional Steps/"Tree edits"
+ - Cookware
+
+I also imagine that each of the data structures, like ingredients and techniques, are enriched with human-readable, localized "wiki" information on the particular technique or ingredient. Maybe with food science about it, or information about why something is done one way or another.

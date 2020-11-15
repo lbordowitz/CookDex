@@ -36,6 +36,7 @@ func main() {
 	cook := &ingredients.CookingTechnique{Technique: "Cook"}
 
 	potatoes := &ingredients.RawIngredient{Name: "potatoes", Amount: "3 large"}
+	// TODO: Should these two mechanical steps be combined? Even though, technically, they're separate?
 	peeledPotatoes := ingredients.MechanicalTechnique("Peel", "peeled potatoes", []ingredients.Ingredient{potatoes}, 2)
 	quarteredPotatoes := ingredients.MechanicalTechnique("Quarter", "quartered potatoes", []ingredients.Ingredient{peeledPotatoes}, 2)
 	boiledPotatoes := boil.Cook("boiled potatoes", []ingredients.Ingredient{quarteredPotatoes}, 20, "high")
@@ -48,7 +49,7 @@ func main() {
 	veggies := &ingredients.RawIngredient{Name: "veggies", Amount: "1-2 cups"}
 	onionsAndVeggies := cook.Cook("onions and veggies", []ingredients.Ingredient{sautedOnions, veggies}, 8, "medium")
 	rawBeef := &ingredients.RawIngredient{Name: "raw ground beef", Amount: "1 1/2 pound"}
-	// "until beef is no longer pink" is the precise verbiage used. NOT an integer time in minutes!
+	// TODO: "until beef is no longer pink" is the precise verbiage used. NOT an integer time in minutes!
 	beefAndVegetables := cook.Cook("beef and veggies", []ingredients.Ingredient{rawBeef, onionsAndVeggies}, 4, "medium")
 	seasonedBeef := ingredients.MechanicalTechnique("Season", "seasoned beef and veggies", []ingredients.Ingredient{beefAndVegetables}, 1)
 	beefBroth := &ingredients.RawIngredient{Name: "beef broth", Amount: "1/2 cup"}
