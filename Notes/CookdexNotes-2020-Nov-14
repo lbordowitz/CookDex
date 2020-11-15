@@ -9,3 +9,6 @@ Oh! Another thing, I think I made this point about time earlier:
  - Chemical/Heat/Cooking techniques track the amount of time the Food needs to cook for to get the desired result
 
 A subtle, but important difference. The Mechanical time is usually not tracked very well; some people have knife skills for days, others might take a little more time to chop things up.
+
+Before doing decorator, let's try to go thru the tree, pre-order traversal.
+Wow. That was easy, and given how simplified I made this, I'm surprised the recipe is remotely comprehensible. Great Job!

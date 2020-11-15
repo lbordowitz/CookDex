@@ -6,6 +6,16 @@ import (
 	"github.com/lbordowitz/CookDex/ingredients"
 )
 
+func displayRecipe(ingredient ingredients.Ingredient) {
+	if ingredient.Components() == nil {
+		return
+	}
+	for _, v := range ingredient.Components() {
+		displayRecipe(v)
+	}
+	fmt.Println(ingredient.Display())
+}
+
 func main() {
 	fmt.Println("Shepherd's pie is delicious, here is how to make it.")
 
@@ -38,5 +48,5 @@ func main() {
 	uncookedShepherdsPie := ingredients.MechanicalTechnique("Layer", "Uncooked Shepherds Pie", []ingredients.Ingredient{shepherdsPieFilling, mashedPotatoes}, 1)
 	shepherdsPie := bake.Cook("Shepherds Pie", []ingredients.Ingredient{uncookedShepherdsPie}, 30, "400")
 
-	fmt.Println(shepherdsPie.Display())
+	displayRecipe(shepherdsPie)
 }
