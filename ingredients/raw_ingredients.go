@@ -1,5 +1,7 @@
 package ingredients
 
+import "fmt"
+
 type Ingredient interface {
 	Display() string
 	IngredientReferenceName() string
@@ -8,11 +10,12 @@ type Ingredient interface {
 }
 
 type RawIngredient struct {
-	Name string
+	Name   string
+	Amount string
 }
 
 func (ingredient *RawIngredient) Display() string {
-	return ingredient.Name
+	return fmt.Sprintf("%s %s", ingredient.Amount, ingredient.Name)
 }
 
 func (ingredient *RawIngredient) IngredientReferenceName() string {

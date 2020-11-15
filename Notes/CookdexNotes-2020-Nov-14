@@ -12,3 +12,9 @@ A subtle, but important difference. The Mechanical time is usually not tracked v
 
 Before doing decorator, let's try to go thru the tree, pre-order traversal.
 Wow. That was easy, and given how simplified I made this, I'm surprised the recipe is remotely comprehensible. Great Job!
+
+Now that the recipe is displaying, in full, let's add some nice bits and bobs here and there to make it easier to read.
+For instance, we can utilize the fact that there's an ingredient reference name and a display separately to provide an ingredient listing.
+
+Okay... I included an ingredient listing. It's okay. One of the problems: it lists the butter ingredient twice, rather than combining them.
+This is because we use butter in two situations: 1/4 cup for mashed potatoes, and 1/4 cup for sauteing the onions.
