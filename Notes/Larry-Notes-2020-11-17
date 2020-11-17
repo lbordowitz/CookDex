@@ -1,0 +1,5 @@
+Another thing, linked via Jay's Recipe schema, is this CookAction schema
+
+https://schema.org/CookAction
+
+It inherits two interesting properties from "Action": result and instrument. I think result can be used to help link/distinguish the cooking technique / CookAction, and the resulting ingredient prepared by that action. I also think instrument may be a useful way to track the pot, pan, and kitchen utensiles used to cook. The idea is the make the perfect recipe book, so I want people to know they can make something with what they have in their kitchen.
