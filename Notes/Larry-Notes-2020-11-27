@@ -27,3 +27,9 @@ After all those three are done, we can get on to the less Go-centric part:
  - Use the API in a web UI
 
 Let's go for it.
+
+I'm adding a little documentation, as a note of "this is what you should do to make nice Godoc pages." However, I'm not completing the whole thing yet; I'm not sure whether the functions or structures I have are the "right" ones. Hmmm, I'm of two minds about this:
+ - I can write documentation now: this will clear my head in terms of what the objects do and their structure. It also gives practice for technical writing.
+ - I can write documentation later: in the very likely event that the structure of the code changes, I don't have to delete a ton of writing.
+
+I think I'll do it later, at least waiting until after I'm done with the rest of the Effective Go guide.

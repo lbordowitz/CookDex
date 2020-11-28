@@ -2,6 +2,7 @@ package ingredients
 
 import "fmt"
 
+// Ingredient has the basic functions an ingredient needs for being interacted with.
 type Ingredient interface {
 	Display() string
 	IngredientReferenceName() string
