@@ -1,0 +1,29 @@
+Here's a thought: the main algorithms in this project involve Natural Language Processing and Understanding.
+
+Consider the tasks we might want to do with a user:
+ - Provide them step-by-step instructions on a recipe
+ - Simplifying existing recipes
+
+Additionally:
+ - Instructing on new techniques
+ - Finding recipes using only food in the pantry
+
+While those last two can be derived fairly straight-forwardly from the recipe tree, the other two imply a dynamic generation of localized text. In other words, the recipe trees should be able to yield multiple human-readable representations: a full recipe, step-by-step instructions with voice (maybe a smart home speaker tool?) and dynamically generating recipe instructions from the simpler tree.
+
+Two other tasks involve understanding:
+ - Help them develop their own recipe, either by guided variation or from scratch
+ - Read recipes online and make trees.
+
+That involves NLP. We could possibly use GPT-3 to read and understand recipes online, with the potential of translating them into trees! Wouldn't that be swell.
+
+Those are more long-term thoughts. We have more urgent matters to attend to.
+
+We have a couple of things that can be done more immediately:
+ - Use the "Effective Go" guide to rewrite a lot of this code, so that it's "nicer".
+ - Extract a "data model".
+ - Make an API, based on the user stories above.
+
+After all those three are done, we can get on to the less Go-centric part:
+ - Use the API in a web UI
+
+Let's go for it.
