@@ -15,6 +15,10 @@ type RawIngredient struct {
 	Amount string
 }
 
+func NewIngredient(name string, amount string) *RawIngredient {
+	return &RawIngredient{Name: name, Amount: amount}
+}
+
 func (ingredient *RawIngredient) Display() string {
 	return fmt.Sprintf("%s %s", ingredient.Amount, ingredient.Name)
 }
