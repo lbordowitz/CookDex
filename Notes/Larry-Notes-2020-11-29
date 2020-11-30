@@ -1,0 +1,14 @@
+So, we finished the "Effective Go" mini guide here:
+https://golang.org/doc/effective_go.html#methods
+
+What was most relevant? Probably "embeddings" and "interfaces."
+
+Beyond that, a more nuanced approach to the data model might be necessary; separating method and ingredient would help. Plus, some extra information (guide to potatoes or frying, for instance) would be conducive to the goals of this project.
+
+Goals can be found at the end of the Nov 5 notes.
+
+I had another thought about time in recipes. Like I said, some times are the time it takes for the person to execute the task, and other times are the time that the food requires. There's a functional distinction as well!
+
+What I mean is, we use a Stopwatch to measure the amount of time it takes someone to chop an onion or three. On the other hand, we use an "hourglass" timer to measure the amount of time for a potato to finish boiling. In the latter, it's a property of the food. But we get something that's very interesting and valuable to the cook in the fomer: data about one's own performance in the kitchen. It is potentially transferable; the amount of time to execute a full recipe could be estimated in terms of how a person executes the individual steps, and extrapolating from previous performance.
+
+Okay, all this is very interesting, and it's a real joy to be an armchair chef... but how do we turn this into a reality? The biggest step with the start of the project happened when I was thinking about an end-goal: postorder traversals can represent the recipe. Can I turn another property of the recipe tree into something useful & useable?
