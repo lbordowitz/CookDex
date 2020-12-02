@@ -1,3 +1,61 @@
 We should work on scheduling, timing, and separating the ingredient from its instantiation within a recipe.
 
 But first: We are not dealing with recipe trees; it's probably closer to "recipe DAGs". I will try to write a mock recipe to illustrate this, and also to demonstrate the shortcomings of the current approach.
+
+I've just added a new recipe, a contrived little example for mac and cheese. The notable part is that shredded cheese is used twice. The issue is that this it the output:
+
+Mac and Cheese is delicious, here is how to make it.
+Ingredients:
+1 package dry pasta
+8 oz cheese
+8 oz cheese
+
+Recipe:
+Boil the dry pasta, at high heat, for 10 minutes
+Shred the cheese
+Mix the boiled potatoes and shredded cheese
+Shred the cheese
+Sprinkle the mac and cheese and shredded cheese
+Bake the unbaked mac, at 350 heat, for 15 minutes
+
+Notice the two "8 oz cheese" ingredients and "Shred the cheese" instructions. This is repeated because we never mark that part of the recipe tree (graph!!) as "visited". That's a problem, and it can probably be solved through a better instruction scheduling algorithm based on time.
+
+A second part is that, right now, the ingredient representation with its amounts are not right. What I mean is, like, I want to mix 6 oz of cheese in my mac, and then sprinkle "the rest" on top for that broiled/baked layer. So, I might take that, and that would determine how much cheese I would shred. In other words, amounts of ingredients matter within the recipe instruction they are used in. And those amounts should be added up towards the leaves. Or, not leaves, but like lowest connected component, whatever it's called. Which brings me to the other point: we should use actual dimensional analysis! Like, doing operations of sum on weights and volumes, matching dimensions properly. This makes the recipe smarter, and gives us a pathway towards metric conversion and recipe scaling (although scaling is much more difficult, and may require food science and thermodynamics of each cooking process).
+
+Let's just start with those two thoughts: ingredient amounts and times. We can do them better. And while the time situation on "stopwatch" steps is not ideal, we'll continue to make them act the same as "hourglass" steps for now.
+
+Let's review: we have a DAG with the amount of time to do each thing. How do we schedule it? There's an entire list of ways to do a scheduling algorithm... and an interesting part about scheduling algorithms is they can be extended to use one "server", or two or any number of servers. I'm anticipating the usage of this sort of software in a professional cooking environment, where some cooks prep, maybe there's a pipeline (assembly line, line chefs?) of cooking activities which can actually be derived as an emergent property FROM the recipe itself, algorithmically. That would be cool.
+
+But for now, let's just do a smidge of research on the problem at hand: one cook, doing steps, the outcomes of which are dependent sometimes on the outcomes of other steps.
+
+It definitely looks like an instance of the Job Shop Scheduling:
+https://en.wikipedia.org/wiki/Job_shop_scheduling
+https://en.wikipedia.org/wiki/Flow_shop_scheduling
+
+Almost, but not quite. This is asking how to parallelize, and definitely has "multiple machines" (cooks) in mind with how the steps work. Also, it's probably operations within a single job we're most interested in; although this will be interesting to apply in an industrial cooking setting.
+
+I definitely thought about this algorithm I learned in high school discrete math class:
+https://en.wikipedia.org/wiki/Critical_path_method
+
+Classic operations management algo. Almost right....
+
+I'm missing something.
+
+Are all "hourglass" steps interruptable/parallelizable?
+
+I think they are! Any time something is baked or boiled, you can just let that go without even looking at it.
+
+BUT some things, like pasta, say to "stir occasionally" so that it doesn't clump, or the roux's "stir continuously" so it doesn't burn. In other words, some cooking "hourglass" methods have occasional mechanical interruptions to them. When there's any mechanical intervention, it is not interruptable.
+
+To recap:
+ - Some cooking methods require mechanical intervention
+ - Other cooking methods are parallelizable
+ - The algorithm for cooking is probably dead simple, but I want to look it up. Interruption will be key to that algorithm. (The "while the potatoes are boiling" style interruption steps.)
+
+Right, obviously, if this is a DAG, we're looking for a topological sort that minimizes some quantity (probably time).
+
+Let's group together ingredients and instructions together and make something a bit more usable for a scheduling algorithm:
+
+ - A chunk of instructions is a set of instructions which either depend on steps already done or have steps in a linear order. They start with a total amount of time to execute, and end with an interruptable amount of cook time.
+
+ Eh, that's not very clear at all... can we rephrase that more precisely?
