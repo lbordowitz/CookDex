@@ -1,0 +1,3 @@
+We should work on scheduling, timing, and separating the ingredient from its instantiation within a recipe.
+
+But first: We are not dealing with recipe trees; it's probably closer to "recipe DAGs". I will try to write a mock recipe to illustrate this, and also to demonstrate the shortcomings of the current approach.
