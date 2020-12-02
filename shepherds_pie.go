@@ -25,7 +25,7 @@ func displayRecipe(ingredient ingredients.Ingredient) {
 	fmt.Println(ingredient.Display())
 }
 
-func main() {
+func shepherdsPie() {
 	fmt.Println("Shepherd's pie is delicious, here is how to make it.")
 
 	boil := &ingredients.CookingTechnique{Technique: "Boil"}
