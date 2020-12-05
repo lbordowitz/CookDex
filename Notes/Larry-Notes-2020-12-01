@@ -58,4 +58,28 @@ Let's group together ingredients and instructions together and make something a 
 
  - A chunk of instructions is a set of instructions which either depend on steps already done or have steps in a linear order. They start with a total amount of time to execute, and end with an interruptable amount of cook time.
 
- Eh, that's not very clear at all... can we rephrase that more precisely?
+Eh, that's not very clear at all... can we rephrase that more precisely?
+
+ - A chunk of instructions is a list of sequentially dependent instructions (a depends on b, b depends on c, etc) such that only the last instruction has interruptible cook time.
+
+Almost. That doesn't include certain parts before it... I'm not sure about this definition. Is it useful? Sure; we want to simplify our DAG by making it a DAG of chunks instead of instructions. Then we can do toposort on the presumably simpler graph, with the extra benefit that all of the cooking time, interruptible or otherwise, is properly accounted for.
+
+This definitely sounds like a shop flow problem. Literally, search for cooking scheduling.
+https://ieeexplore.ieee.org/document/7373960
+And, earlier
+https://link.springer.com/chapter/10.1007/978-1-4614-1695-1_10
+
+The same guys! Nobuo Funabiki and Yukiko Matsushima. Yukiko Matsushima's last paper was 2015. 17 references, 0 citations....
+
+The guy has definitely been interested in this field of research:
+https://www.researchgate.net/publication/261109407_A_cooking_guidance_function_on_Android_tablet_for_Homemade_Cooking_Assistance_System
+
+I think we found the pdf:
+https://pdfs.semanticscholar.org/f2ae/bb128d43e5a4912da1bac6e9b87d9b9940bd.pdf
+
+OH! Yukiko Matsushima is listed as a Student Member.
+
+http://lab.iisec.ac.jp/~tanaka_lab/images/pdf/conference/conference-00-04.pdf
+http://www.lrec-conf.org/proceedings/lrec2014/pdf/763_Paper.pdf
+
+Here's some information related to the highly cited Reiko Hamada.
